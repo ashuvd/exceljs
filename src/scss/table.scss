@@ -22,6 +22,7 @@
     border: 1px solid $border-color;
     background-color: $light;
     border-top: none;
+    position: relative;
   }
   &__data {
     display: flex;
@@ -42,6 +43,7 @@
     height: 100%;
     border-top: none;
     border-left: none;
+    position: relative;
   }
   &__cell {
     min-width: 40px;
@@ -58,6 +60,40 @@
       border: none;
       outline: 2px solid $blue-dark;
       z-index: 2;
+    }
+  }
+}
+
+.column {
+  &__resize {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 4px;
+    background-color: $blue-dark;
+    opacity: 0;
+    &:hover {
+      opacity: 1!important;
+      cursor: col-resize;
+    }
+  }
+}
+
+.row {
+  &__resize {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: $blue-dark;
+    opacity: 0;
+    &:hover {
+      opacity: 1!important;
+      cursor: row-resize;
     }
   }
 }

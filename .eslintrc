@@ -11,7 +11,7 @@
     "comma-dangle": "off",
     "require-jsdoc": "off",
     "operator-linebreak": "off",
-//    "max-len": ["error", { "code": 100 }],
+    "max-len": ["error", { "code": 100 }],
     "indent": ["error", 2]
   },
   "extends": ["eslint:recommended", "google"]
