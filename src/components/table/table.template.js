@@ -5,7 +5,12 @@ const CODES = {
 
 function toCell(i, index) {
   return `
-    <div class="table__cell" contenteditable data-row="${i}" data-column="${index}"></div>
+    <div class="table__cell"
+      contenteditable
+      data-id="${i}:${index}"
+      data-type="cell"
+      data-column="${index}"
+    ></div>
   `;
 }
 
@@ -19,7 +24,9 @@ function toColumn(column, index) {
 }
 
 function createRow(content, index = '') {
-  const resize = index ? '<div class="row__resize" data-resize="row"></div>' : '';
+  const resize = index
+    ? '<div class="row__resize" data-resize="row"></div>'
+    : '';
   return `
     <div class="table__row row" data-type="resizable" data-row="${index}">
       <div class="table__info">
@@ -47,28 +54,10 @@ export function createTable(rowsCount = 15) {
   rows.push(createRow(columns));
   for (let i = 0; i < rowsCount; i++) {
     const cells = new Array(columnsCount)
-      .fill(i+1)
+      .fill(i)
       .map(toCell)
       .join('');
     rows.push(createRow(cells, i + 1));
   }
   return rows.join('');
-  // `
-  //     <div class="table__row">
-  //       <div class="table__info"></div>
-  //       <div class="table__data">
-  //         <div class="table__column">A</div>
-  //         <div class="table__column">B</div>
-  //         <div class="table__column">C</div>
-  //       </div>
-  //     </div>
-  //     <div class="table__row">
-  //       <div class="table__info">1</div>
-  //       <div class="table__data">
-  //         <div class="table__cell selected" contenteditable>A1</div>
-  //         <div class="table__cell" contenteditable>B1</div>
-  //         <div class="table__cell" contenteditable>C1</div>
-  //       </div>
-  //     </div>
-  // `
 }

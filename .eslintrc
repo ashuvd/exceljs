@@ -12,7 +12,7 @@
     "require-jsdoc": "off",
     "operator-linebreak": "off",
     "max-len": ["error", { "code": 100 }],
-    "indent": ["error", 2]
+    "indent": ["error", 2, { "SwitchCase": 1 }]
   },
   "extends": ["eslint:recommended", "google"]
 }
