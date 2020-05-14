@@ -3,7 +3,8 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "rules": {
     "object-curly-spacing": "off",
@@ -15,5 +16,6 @@
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "no-case-declarations": "off"
   },
+  "plugins": ["jest"],
   "extends": ["eslint:recommended", "google"]
 }
